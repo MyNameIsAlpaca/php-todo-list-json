@@ -9,6 +9,8 @@ createApp({
 
       newTodoInfo: '',
 
+      fullList: '',
+
     }
   },
 
@@ -35,6 +37,20 @@ createApp({
       });
 
       this.newTodoInfo = '';
+    },
+
+    doneTask(index){
+
+      let data = {
+        activeIndex: index
+      }
+
+      axios.post('./server.php', data, {headers: {'Content-Type': 'multipart/form-data'}}).then(response => {
+
+        this.getList();
+        
+      });
+      
     },
   },
 
