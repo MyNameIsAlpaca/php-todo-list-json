@@ -42,3 +42,23 @@ if(isset($_POST['activeIndex'])) {
   file_put_contents('list.json', $modListJson);
 
 }
+
+if(isset($_POST['activeIndexDelete'])) {
+
+  $index = $_POST['activeIndexDelete'];
+
+  $listJsonOr = file_get_contents('list.json');
+
+  $listPhpOr = json_decode($listJsonOr);
+
+  foreach ($listPhpOr as $key => $object) {
+    if ($key == $index) {
+       unset($listPhpOr[$index]);
+    }
+  }
+
+  $modListJson = json_encode($listPhpOr);
+
+  file_put_contents('list.json', $modListJson);
+
+}

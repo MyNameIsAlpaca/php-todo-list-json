@@ -24,7 +24,7 @@
     <div class="container">
       <div class="container-list">
         <ul>
-          <li @click="doneTask(index)" :class="todo.done ? 'done' : ''" v-for="(todo, index) in todoList">{{todo.name}}</li>
+          <li :class="todo.done ? 'done' : ''" v-for="(todo, index) in todoList"><span @click="doneTask(index)">{{todo.name}}</span>  <button @click="deleteElement(index)">Elimina</button></li>
         </ul>
       </div>
       <input type="text" placeholder="Aggiungi una nota" v-model="newTodoInfo">
