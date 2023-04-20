@@ -17,9 +17,17 @@
 
 </head>
 <body>
-  
-  <div id="app">
 
+  <div id="app">
+    <div class="container">
+      <div class="container-list">
+        <ul>
+          <li v-for="todo in todoList">{{todo.name}}</li>
+        </ul>
+      </div>
+      <input type="text" placeholder="Aggiungi una nota" v-model="newTodoInfo">
+      <button @click="newTodo()">Invia</button>
+    </div>
   </div>
   
   <!-- bootstrap -->
