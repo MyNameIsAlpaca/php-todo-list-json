@@ -51,11 +51,7 @@ if(isset($_POST['activeIndexDelete'])) {
 
   $listPhpOr = json_decode($listJsonOr);
 
-  foreach ($listPhpOr as $key => $object) {
-    if ($key == $index) {
-       unset($listPhpOr[$index]);
-    }
-  }
+  array_splice($listPhpOr, $_POST['activeIndexDelete'], 1);
 
   $modListJson = json_encode($listPhpOr);
 
