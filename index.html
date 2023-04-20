@@ -17,19 +17,26 @@
   <!-- vue -->
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body>
 
   <div id="app">
-    <div class="container">
-      <div class="container-list">
-        <ul>
-          <li :class="todo.done ? 'done' : ''" v-for="(todo, index) in todoList"><span @click="doneTask(index)">{{todo.name}}</span>  <button @click="deleteElement(index)">Elimina</button></li>
-        </ul>
+    <main>
+      <div class="container">
+        <h1>TodoList</h1>
+        <div class="container-list">
+          <ul>
+            <li :class="todo.done ? 'done' : ''" v-for="(todo, index) in todoList"><span @click="doneTask(index)">- {{todo.name}}</span><button @click="deleteElement(index)"><i class="fa-solid fa-trash"></i></button></li>
+          </ul>
+        </div>
+        <div class="form">
+          <input class="text" type="text" placeholder="Aggiungi una nota" v-model="newTodoInfo">
+          <button class="send" @click="newTodo()">Invia</button>
+        </div>
       </div>
-      <input type="text" placeholder="Aggiungi una nota" v-model="newTodoInfo">
-      <button @click="newTodo()">Invia</button>
-    </div>
+    </main>
   </div>
   
   <!-- bootstrap -->
