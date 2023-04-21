@@ -32,7 +32,7 @@
           </ul>
         </div>
         <div class="form">
-          <input class="text" type="text" placeholder="Aggiungi una nota" v-model="newTodoInfo">
+          <input @keyup.enter="newTodo()" class="text" type="text" placeholder="Aggiungi una nota" v-model="newTodoInfo">
           <button class="send" @click="newTodo()">Invia</button>
         </div>
       </div>
